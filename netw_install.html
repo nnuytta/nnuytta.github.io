@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="site.css">
+        <link rel="stylesheet" href="question.css">
+        <link rel="stylesheet" href="menu.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <script src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="icons\icon1.ico" type="image/x-icon">
+        <title>Сетевая установка</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="main_container">
+                <div class="header_body">
+                    <a href="index.html" class="logo"><span>VetCAD++</span></a>
+                    <div class="header_burger"></div>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="versions_page.html">Пробные версии</a></li>
+                            <li><a href="tutorials_page.html">Уроки</a></li>
+                            <li><a href="getlicense_page.html" class="first_button">Заказать программу</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="main_container">
+            <div class="text">
+                <h3 class="h3">Сетевая установка VetCAD++</h3>
+                <p>
+                    1. Папку VetCAD++ необходимо поместить на общедоступном сетевом ресурсе, открыть пользователям к
+                    ней доступ на чтение (некоторым можно дать доступ на запись для обновления баз например)                
+                </p>
+                <p>
+                    2. Установить VetCAD++ как описано здесь, указывая файл SetupVetCAD*.*  из сетевой папки.               
+                </p>
+                <p>
+                    В случае сетевой установки удобно производить обновления программы, также базы к программе являются общими для всех. В лицензионный 
+                    файл включаются все номера машин и файл хранится в папке VetCAD++ на сервере. При загрузке VetCAD++ каждый экземпляр программы находит в файле лицензии свой номер.
+                </p>               
+                <p>
+                    В случае сетевой установки настройки пользователя (файл vetcad++.ini) будет располагаться в папке Windows на локальной машине пользователя.
+                </p>
+                <h3>Менеджер лицензий VetCAD++.</h3>
+                <p>
+                    Возможна установка на сервер менеджера лицензий VetCAD++, для которого создается лицензионный файл, в котором прописано количество одновременно работающих пользователей. В этом 
+                    случае нет необходимости снимать номера с машин пользователей, достаточно номер сервера. Такой вариант лицензирования возможен при покупке 10 и более рабочих мест. Для этого:
+                </p>
+                <p>
+                    1. Необходимо закачать менеджер лицензий VetCAD++ по ссылке.
+                </p>
+                <p>
+                    2. Запустить файл VetCADLicMan.exe на том сервере, который будет раздавать лицензии (это не обязательно та же машина, на которой находится папка 
+                    VetCAD++, это может быть любая другая машина в сети). Менеджер сообщит, что лицензия не найдена. Вышлите продавцу "Код машины", который выдал менеджер. 
+                    Закрыть менеджер можно, нажав сначала на кнопку "Старт!", затем появится кнопка "Выход".
+                </p>
+                <p>
+                    3. Полученный от продавца файл лицензии поместите в папку, в которой находится VetCADLicMan.exe.
+                </p>
+                <p>
+                    4. Подправьте файл LicManager.ini, а именно IP адрес машины, которая будет раздавать лицензии (на которой был запущен VetCADLicMan.exe). Можно изменить 
+                    порт со стандартно прописанного "1234" на любой другой, если этот занят.
+                </p>
+                <p>
+                    5. Скопируйте LicManager.ini в папку VetCAD++\App на сервере.
+                </p>
+                <p>
+                    6. Запустите VetCADLicMan.exe и нажмите кнопку "Старт!". Менеджер работает и будет раздавать лицензии на количество рабочих мест, прописанное в лицензии.
+                </p>
+                <p>
+                    Лицензии являются плавающими и освобождаются при выходе из AutoCAD (или другой САПР).
+                </p>
+                <h3>Менеджер лицензий как служба</h3>
+                <p>
+                    По вышеописанной схеме менеджер работает как приложение и в этом случае нельзя делать выход из системы (Logout), иначе приложение будет выгружено из памяти. 
+                    Если Вас такой вариант не устраивает, можно воспользоваться службой. Для этого:
+                </p>
+                <p>
+                    1. Выполните 5 пунктов, описанных выше.
+                </p>
+                <p>
+                    2. Зарегистрируйте службу, запустив regservice.bat (см. в составе архива). Проверьте в свойствах службы "VetCAD++ Service", что она запускается автоматически.
+                </p>
+                <p>
+                    3. Подправьте значение параметра Service в файле LicManager.ini на 1 (по умолчанию 0). Получится Service=1.
+                </p>
+                <p>
+                    4. Запустите VetCADLicMan.exe и нажмите кнопку "Активизировать сервис". Теперь менеджер лицензий можно закрыть, раздавать лицензии будет служба. 
+                    Менеджер лицензий можно только периодически запускать, чтобы посмотреть сколько лицензий захвачено на данный момент.
+                </p>
+                <p>
+                    Примечание: Сделайте запуск службы в автоматическом режиме при старте системы. Менеджер также можно активизировать при старте системы. Для этого 
+                    создайте bat файл и пропишите в нем путь к VetCADLicMan.exe и через пробел укажите параметр start и поместите bat файл в автозагрузку. Получится  что-то вроде
+                    D:\vcLicMan\VetCADLicMan.exe start
+                </p>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer_container">
+                <ul class="question_list">
+                    <li><a href="how_to_install.html">Как установить VetCAD++</a></li>
+                    <li><a href="how_to_regestrate.html">Как зарегистрировать</a></li>
+                    <li><a href="cant_regestrate.html">Не могу зарегистрировать</a></li>
+                </ul>
+                <ul class="question_list">
+                    <li><a href="minus_number.html">Отрицательный номер</a></li>
+                    <li><a href="netw_install.html">Сетевая установка</a></li>
+                    <li><a href="installation_problems.html">Проблемы установки</a></li>
+                </ul>
+                <ul class="question_list">
+                    <li><a href="license_variants.html">Варианты лицензирования</a></li>
+                </ul>
+                <ul id="questions" >
+                    <li><a href="all_questions_page.html">Часто задаваемые вопросы</a></li>
+                </ul>
+                <ul id="contacts">
+                    <li>
+                        <img src="icons\white_telephone.svg" height="13" width="13"><span id="contact_tel"> +375-29-6682046</span>
+                    </li>
+                    <li>
+                        <a href="mailto:support@vetcad.ru" id="contact_mail"> support@vetcad.ru</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/user/VetalBY/videos" target="_blank">
+                            <img id="ytlogo" src="icons\YouTube_Logo.svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

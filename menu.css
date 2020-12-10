@@ -1,0 +1,316 @@
+*,*:before,*:after{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*::selection {
+    background: #C1C8E4; 
+}
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    background-size: cover;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    box-shadow: 0 0.2vw 1vw rgba(46, 75, 171, 0.5); 
+}
+.header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom left, #5580E9 50%, #54AAE8);;
+    z-index: 2;
+}
+.header_body {
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+}
+.menu { 
+    width: 100%;
+    overflow: auto;
+}
+.menu ul {
+    position: relative;
+    z-index: 2;
+    padding-left: 0; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.menu li{
+    padding: 10px 25px;
+    border-left: 2px solid #E4ECFF;
+    list-style: none; 
+}
+.menu li:last-child, li:first-child{
+    border-left: none;
+}
+.menu li:last-child {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.menu a {
+    text-decoration: none; 
+    display: block;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+}
+.menu a:not(.first_button) {
+    color: #E4ECFF;
+}
+.menu a:hover:not(.first_button) {
+    color: #ffffff;
+}
+.first_button {
+    background-color: transparent;
+    border: solid #ffffff 2px;
+    border-radius: 15px;
+    padding: 7px 40px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+}
+.first_button:hover {
+    background-color: #ffffff;
+    color: #5580E9;
+}
+.header_burger {
+    display: none;
+    background-image: url(icons/menu.svg);
+    height: 30px;
+    width: 30px;
+}
+.logo {
+    text-decoration: none;
+    font-size: 24px ;
+    font-family: Arial;
+    font-weight: bold;
+    color: #FFF;
+    z-index: 3;
+}
+#current_page {
+    color: #ffffff;
+}
+.main_container {
+    min-height: 85%;
+    max-width: 1200px;
+    min-width: 300px;
+    margin: 0px auto;
+    background: linear-gradient(#FFF ,#f7fdff 10%, #f8f5ff);
+}
+.text { 
+    display: block; 
+    width: 80%; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 100px auto;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+}
+.footer {
+    font-family: Arial, sans-serif;
+    left: 0;
+    bottom: 0;
+    align-items: center;
+    position: relative;
+    height: 200px;
+    width: 100%;
+    min-width: 300px;
+    background: linear-gradient(to top left, #8860D0, #7553D4 50%);
+    display: flex;
+}
+.footer_container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+}
+.footer_container li {
+    padding: 10px 20px;
+    list-style: none;
+}
+.footer_container a {
+    text-decoration: none; 
+    color: #dbceff;
+    text-align: center;
+    font-size: 16px;
+}
+.footer_container a:hover {
+    color: #ffffff;
+}
+#contacts {
+    margin-left: auto;
+    text-align: right;
+}
+#questions {
+    display: none;
+}
+#contact_tel {
+    color:#dbceff; 
+    font-size: 17px;
+}
+#contact_mail {
+    font-size: 18px;
+}
+#ytlogo {
+    height: 27px;
+}
+#author {
+    font-size: 12px;
+    color: #ffffff;
+}
+@media (max-width:1200px){
+    .logo {
+        margin-left: 20px;
+    }
+    .menu {
+        margin-right: 20px;
+    }
+}
+@media (max-width:1024px){
+    .banner {
+        margin: 50px auto;
+    }
+    .text {
+        margin: 60px auto;
+        margin-bottom: 0px;
+    }
+    .header_body {
+        height: 50px;
+    }
+    .menu {
+        position: fixed;
+        top: -200%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: #5AB8EB;
+        padding: 70px 10px 20px 20px;
+        transition: all 0.3s ease 0s;
+    }
+    .menu a {
+        text-align: left;
+        text-transform: uppercase;
+        color: #E4ECFF;
+    }
+    .menu ul {
+        width: 100%;
+        display: block;
+    }
+    .menu li {
+        margin: 0px 0px 10px 0px;
+        padding: 0px 0px;
+        border: none;
+    }
+    .first_button {
+        border: none;
+        padding: 0 0;
+    }
+    .first_button:hover {
+        background-color: transparent;
+        color: #ffffff;
+    }
+    .menu a:hover {
+        color: #ffffff;
+    }
+    .logo {
+        z-index: 3;
+        margin-left: 20px;
+    }
+    .header_burger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        color: white;
+        position: relative;
+        z-index: 3;
+    }
+    .menu.active {
+        top: 0;
+    }
+    body.lock {
+        overflow: hidden; 
+    }
+    .header_burger.active {
+        background-image: url(icons/close.svg);
+        transition: all 0.2s ease 0s;
+    }
+    .footer_container li {
+        padding: 7px 10px;
+    }
+    .footer_container:last-child, .footer_container:first-child {
+        padding: 7px 20px;
+    }
+}
+@media (max-width:767px){
+    .footer {
+        height: 150px;
+    }
+    .footer_container {
+        display: flex;
+    }
+    .footer_container li {
+        padding: 7px 20px;
+    }
+    .question_list {
+        display: none;
+    }
+    #questions {
+        display: flex;
+    }
+    #questions a {
+        text-decoration: none;
+        color: #dbceff;
+    }
+    #questions a:hover {
+        color: #ffffff;
+    }
+    #contact_tel {
+        font-size: 15px;
+    }
+    #contact_mail {
+        font-size: 16px;
+    }
+    #ytlogo {
+        height: 20px;
+    }
+}
+@media (max-width:540px){
+    .footer_container li {
+        padding: 7px 10px;
+    }
+    .footer_container:last-child, .footer_container:first-child {
+        padding: 7px 10px;
+    }
+}
+@media (max-width:376px){
+    .header_burger {
+        height: 25px;
+        width: 25px;
+        right: 15px;
+    }
+    .logo {
+        font-size: 19px;
+        margin-left: 15px;
+    }
+}
